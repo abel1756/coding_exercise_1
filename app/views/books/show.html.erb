@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-center">
+    <%= image_tag @book.cover_image.persisted? ? @book.cover_image : '' %>
+  </div>
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="row justify-content-center">
+        ISBN: <%= @book.isbn %>
+      </div>
+      <div class="row justify-content-center">
+        Author: <%= @book.author.full_name %>
+      </div>
+      <div class="row justify-content-center">
+        Title: <%= @book.title %>
+      </div>
+      <div class="row justify-content-center">
+        Publisher: <%= @book.publisher %>
+      </div>
+      <div class="row justify-content-center">
+        Publication Year: <%= @book.publication_year %>
+      </div>
+      <div class="row justify-content-center">
+        Publication Country Code: <%= @book.publication_country_code %>
+      </div>
+      <div class="row justify-content-center">
+        <p style="font-family: Times New Roman; font-size: 16px"><%= @book.mla_author_name %>. <i><%= @book.title %></i>. <%= @book.publisher %>, <%= @book.publication_year %>.</p>
+      </div>
+    </div>
+  </div>
+</div>

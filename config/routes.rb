@@ -5,6 +5,12 @@ Rails.application.routes.draw do
     get '/profile', to: 'authors#show'
   end
 
+  devise_scope :book do
+    get 'profile/books', to: 'authors#books'
+    post '/books', to: 'books#create'
+  end
+
   root 'home#index'
   get 'home/index'
+  get 'books/:id', to: 'books#show'
 end

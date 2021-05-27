@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :authenticate_author!, only: [:show]
+  before_action :authenticate_author!, only: [:show, :books]
 
   def show
     respond_to do |format|
@@ -8,6 +8,14 @@ class AuthorsController < ApplicationController
       end
       format.json do
         render json: current_author
+      end
+    end
+  end
+
+  def books
+    respond_to do |format|
+      format.json do
+        render json: current_author.books
       end
     end
   end
