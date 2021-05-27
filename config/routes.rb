@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
   get 'books/:id', to: 'books#show'
+  get '/search', to: 'books#search'
 end

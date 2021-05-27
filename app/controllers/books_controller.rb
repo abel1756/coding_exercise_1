@@ -18,9 +18,17 @@ class BooksController < ApplicationController
     @book.cover_image.attach(book_params[:cover_image])
   end
 
+  def search
+    respond_to do |format|
+      format.json do
+        render json: Book.where("lower(title) LIKE ?", "%#{book_params[:search_query].downcase}%")
+      end
+    end
+  end
+
   private
 
   def book_params
-    params.permit(:isbn, :title, :publisher, :publication_year, :publication_country_code, :cover_image)
+    params.permit(:isbn, :title, :publisher, :publication_year, :publication_country_code, :cover_image, :search_query)
   end
 end
